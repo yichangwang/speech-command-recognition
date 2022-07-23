@@ -1,0 +1,7 @@
+sonopy
+tensorflow
+numpy
+scipy
+flask
+flask-bootstrap
+
