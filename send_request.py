@@ -2,7 +2,18 @@ import os
 import random
 import requests
 
-url = 'http://127.0.0.1:5000/predict_api'
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--host', type=str,
+                    default='127.0.0.1:5000',
+                    help='ip:port')
+parser.add_argument('--repeat', type=int, default=3)
+
+args = parser.parse_args()
+
+url = 'http://' + args.host + '/predict_api'
+
 input_data_folder = 'test_data'
 wav_list = os.listdir(input_data_folder)
 test_folder = 'test_data'
@@ -14,7 +25,7 @@ for y_true in y_folder_list:
     test_sample = os.listdir(sample_folder)
 
     # randomly choose N (here = 3) from a random label
-    file_names = random.sample(test_sample, 3)
+    file_names = random.sample(test_sample, args.repeat)
     for file_name in file_names:
         wavfile_path = os.path.join(sample_folder, file_name)
 

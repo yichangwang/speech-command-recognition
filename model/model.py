@@ -1,11 +1,11 @@
+from tensorflow import keras
+from sonopy import mfcc_spec
+from scipy.io import wavfile
+import numpy as np
+import random
+import pickle
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import pickle
-import random
-import numpy as np
-from scipy.io import wavfile
-from sonopy import mfcc_spec
-from tensorflow import keras
 
 # from sklearn import preprocessing
 
@@ -37,6 +37,8 @@ class PreProcessing():
             sig = sig[:, 0]
         except:
             pass
+        if rate > 16000:
+            sig = sig[::rate//16000+1]
         # normalization
         sig = self.normalize(sig)
         # standardization of sizes

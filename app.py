@@ -1,10 +1,9 @@
+import model.model as model
+from flask import Flask, render_template, url_for, request, redirect
+from flask_bootstrap import Bootstrap
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-from flask_bootstrap import Bootstrap
-from flask import Flask, render_template, url_for, request, redirect
-
-import model.model as model
 
 app = Flask(__name__, template_folder='Template')
 Bootstrap(app)
@@ -50,4 +49,4 @@ def predict_api():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
