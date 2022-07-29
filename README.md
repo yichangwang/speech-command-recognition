@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ## Run the model
 After install the requirements, you can host the flask app through
-`python app.py`.
+`python flask_app.py`.
 There are two ways to use the model for prediction.
 1. Through browser:
    open the URL http://localhost:5000 and upload a wav file from `test_data` folder.
